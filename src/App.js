@@ -49,7 +49,7 @@ function App() {
       todos.concat([
         {
           id: Date.now(),
-          completed: false,
+          completed: true,
           title: text,
         },
       ])
