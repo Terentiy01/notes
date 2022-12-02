@@ -8,7 +8,7 @@ function App() {
     { id: 3, completed: false, title: 'Buy dildo' },
   ]
   return (
-    <div>
+    <div className="wrapper">
       <h1>Notes</h1>
       <TodoUl notes={notes} />
     </div>

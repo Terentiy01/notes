@@ -18,7 +18,7 @@ code {
   width: 600px;
 }
 
-.rm {
+/* .rm {
   background: red;
   border-radius: 50%;
   color: #fff;
@@ -82,4 +82,4 @@ code {
   100% {
     transform: scale(0.9);
   }
-}
+} */
