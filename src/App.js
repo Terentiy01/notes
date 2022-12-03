@@ -4,7 +4,7 @@ import TodoUl from './components/TodoUl'
 function App() {
   const notes = [
     { id: 1, completed: false, title: 'Buy dildo for Diana' },
-    { id: 2, completed: false, title: 'Buy dildo for' },
+    { id: 2, completed: false, title: 'Buy dildo for DASDDSA' },
     { id: 3, completed: false, title: 'Buy dildo' },
   ]
   return (
