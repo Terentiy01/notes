@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../context'
 
 const styles = {
   li: {
@@ -15,7 +16,9 @@ const styles = {
   },
 }
 
-function TodoLi({ element, index, changer, deleted }) {
+function TodoLi({ element, index, changer }) {
+  const { deleted } = useContext(Context)
+
   const chert = []
 
   if (element.completed) {

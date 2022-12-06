@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TodoAdd from './components/TodoAdd'
 import TodoUl from './components/TodoUl'
+import Context from './context'
 
 function App() {
   const [notes, setNotes] = useState([])
@@ -33,11 +34,13 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
-      <h1 className="tablo">Notes</h1>
-      <TodoAdd dobavit={dobavit} />
-      <TodoUl notes={notes} changer={changer} deleted={deleted} />
-    </div>
+    <Context.Provider value={{ deleted }}>
+      <div className="wrapper">
+        <h1 className="tablo">Notes</h1>
+        <TodoAdd dobavit={dobavit} />
+        <TodoUl notes={notes} changer={changer} />
+      </div>
+    </Context.Provider>
   )
 }
 
