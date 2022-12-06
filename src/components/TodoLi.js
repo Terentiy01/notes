@@ -15,7 +15,7 @@ const styles = {
   },
 }
 
-function TodoLi({ element, index, changer }) {
+function TodoLi({ element, index, changer, deleted }) {
   const chert = []
 
   if (element.completed) {
@@ -34,7 +34,9 @@ function TodoLi({ element, index, changer }) {
         &nbsp;
         {element.title}
       </span>
-      <button>&times;</button>
+      <button className="rm" onClick={() => deleted(element.id)}>
+        &times;
+      </button>
     </li>
   )
 }

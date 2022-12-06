@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react'
 import TodoUl from './components/TodoUl'
 
 function App() {
-  // const notes = [
-  //   { id: 1, completed: false, title: 'Buy dildo for Diana' },
-  //   { id: 2, completed: false, title: 'Buy dildo for DASDDSA' },
-  //   { id: 3, completed: false, title: 'Buy dildo' },
-  // ]
-
   const [notes, setNotes] = useState([
     { id: 1, completed: false, title: 'Buy dildo for Diana' },
     { id: 2, completed: false, title: 'Buy dildo for DASDDSA' },
@@ -15,7 +9,6 @@ function App() {
   ])
 
   function changer(cifra) {
-    console.log(cifra)
     setNotes(
       notes.map((element) => {
         if (element.id === cifra) {
@@ -26,14 +19,14 @@ function App() {
     )
   }
 
-  // useEffect(() => {
-  //   console.log(notes)
-  // }, [notes])
+  function deleted(nomer) {
+    setNotes(notes.filter((el) => el.id !== nomer))
+  }
 
   return (
     <div className="wrapper">
-      <h1>Notes</h1>
-      <TodoUl notes={notes} changer={changer} />
+      <h1 className="tablo">Notes</h1>
+      <TodoUl notes={notes} changer={changer} deleted={deleted} />
     </div>
   )
 }

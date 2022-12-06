@@ -9,7 +9,7 @@ const styles = {
   },
 }
 
-function TodoUl({ notes, changer }) {
+function TodoUl({ notes, changer, deleted }) {
   return (
     <ul style={styles.ul}>
       {notes.map((element, index) => {
@@ -19,6 +19,7 @@ function TodoUl({ notes, changer }) {
             element={element}
             key={element.id}
             changer={changer}
+            deleted={deleted}
           />
         )
       })}
