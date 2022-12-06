@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import TodoAdd from './components/TodoAdd'
 import TodoUl from './components/TodoUl'
 import Context from './context'
+import Loader from './components/Loader'
 
 function App() {
   const [notes, setNotes] = useState([])
+  const [zagruska, setZagruska] = useState(true)
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
@@ -12,7 +14,8 @@ function App() {
       .then((element) => {
         setTimeout(() => {
           setNotes(element)
-        }, 1000)
+          setZagruska(false)
+        }, 1500)
       })
   }, [])
 
@@ -48,9 +51,10 @@ function App() {
       <div className="wrapper">
         <h1 className="tablo">Notes</h1>
         <TodoAdd dobavit={dobavit} />
+        {zagruska && <Loader />}
         {notes.length ? (
           <TodoUl notes={notes} changer={changer} />
-        ) : (
+        ) : zagruska ? null : (
           <h4>Empty notes</h4>
         )}
       </div>

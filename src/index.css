@@ -34,7 +34,7 @@ code {
   border: none;
 }
 
-/* .lds-roller {
+.lds-roller {
   display: inline-block;
   position: relative;
   width: 80px;
@@ -51,7 +51,7 @@ code {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: #dfc;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
@@ -117,7 +117,7 @@ code {
   100% {
     transform: rotate(360deg);
   }
-} */
+}
 
 /* .lds-heart {
   display: inline-block;
