@@ -15,11 +15,21 @@ const styles = {
   },
 }
 
-function TodoLi({ element, index }) {
+function TodoLi({ element, index, changer }) {
+  const chert = []
+
+  if (element.completed) {
+    chert.push('chertochka')
+  }
+
   return (
     <li style={styles.li}>
-      <span>
-        <input style={styles.input} type={'checkbox'} />
+      <span className={chert.join(' ')}>
+        <input
+          style={styles.input}
+          type={'checkbox'}
+          onChange={() => changer(element.id)}
+        />
         <strong>{index + 1}</strong>
         &nbsp;
         {element.title}

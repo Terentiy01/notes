@@ -18,6 +18,10 @@ code {
   width: 600px;
 }
 
+.chertochka {
+  text-decoration: line-through;
+}
+
 /* .rm {
   background: red;
   border-radius: 50%;

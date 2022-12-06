@@ -9,11 +9,18 @@ const styles = {
   },
 }
 
-function TodoUl({ notes }) {
+function TodoUl({ notes, changer }) {
   return (
     <ul style={styles.ul}>
       {notes.map((element, index) => {
-        return <TodoLi index={index} element={element} key={element.id} />
+        return (
+          <TodoLi
+            index={index}
+            element={element}
+            key={element.id}
+            changer={changer}
+          />
+        )
       })}
     </ul>
   )
