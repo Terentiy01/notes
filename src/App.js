@@ -6,6 +6,16 @@ import Context from './context'
 function App() {
   const [notes, setNotes] = useState([])
 
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
+      .then((response) => response.json())
+      .then((element) => {
+        setTimeout(() => {
+          setNotes(element)
+        }, 1000)
+      })
+  }, [])
+
   function dobavit(addTodo) {
     setNotes(
       notes.concat([
@@ -38,7 +48,11 @@ function App() {
       <div className="wrapper">
         <h1 className="tablo">Notes</h1>
         <TodoAdd dobavit={dobavit} />
-        <TodoUl notes={notes} changer={changer} />
+        {notes.length ? (
+          <TodoUl notes={notes} changer={changer} />
+        ) : (
+          <h4>Empty notes</h4>
+        )}
       </div>
     </Context.Provider>
   )
