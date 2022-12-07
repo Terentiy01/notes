@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import TodoUl from './components/TodoUl'
 import Context from './context'
 import Loader from './components/Loader'
+import Modal from './components/Modal'
 
 function App() {
   const [notes, setNotes] = useState([])
@@ -58,6 +59,7 @@ function App() {
   return (
     <Context.Provider value={{ deleted }}>
       <div className="wrapper">
+        <Modal />
         <h1 className="tablo">Notes</h1>
         <React.Suspense fallback={<p>Loading...</p>}>
           <LazyTodoAdd dobavit={dobavit} />
