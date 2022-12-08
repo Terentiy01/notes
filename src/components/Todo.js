@@ -46,7 +46,12 @@ function Todo() {
         {notes.map((element, index) => {
           return (
             <li style={styles.li} key={element.id}>
-              {element.title}
+              <span>
+                <strong>{index + 1}</strong>
+                &nbsp;
+                {element.title}
+              </span>
+              <button>&times;</button>
             </li>
           )
         })}
