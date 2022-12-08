@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const styles = {
   ul: {
@@ -50,6 +50,20 @@ function Todo() {
     )
   }
 
+  function remover(id) {
+    setNotes(notes.filter((element) => element.id !== id))
+  }
+
+  // function remover(id) {
+  //   setNotes(
+  //     notes.filter((element) => {
+  //       if (element.id !== id) {
+  //         return true
+  //       }
+  //     })
+  //   )
+  // }
+
   return (
     <div className="wrapper">
       <h1>Заметки</h1>
@@ -65,6 +79,7 @@ function Todo() {
             <li style={styles.li} key={element.id}>
               <span className={line.join(' ')}>
                 <input
+                  checked={element.completed}
                   type={'checkbox'}
                   style={styles.input}
                   onChange={() => changeCompleted(element.id)}
@@ -73,7 +88,7 @@ function Todo() {
                 &nbsp;
                 {element.title}
               </span>
-              <button>&times;</button>
+              <button onClick={() => remover(element.id)}>&times;</button>
             </li>
           )
         })}
