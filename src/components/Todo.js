@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const styles = {
   ul: {
@@ -39,14 +39,36 @@ function Todo() {
     },
   ])
 
+  function changeCompleted(id) {
+    setNotes(
+      notes.map((element) => {
+        if (element.id === id) {
+          element.completed = !element.completed
+        }
+        return element
+      })
+    )
+  }
+
   return (
     <div className="wrapper">
       <h1>Заметки</h1>
       <ul style={styles.ul}>
         {notes.map((element, index) => {
+          const line = []
+
+          if (element.completed) {
+            line.push('chertochka')
+          }
+
           return (
             <li style={styles.li} key={element.id}>
-              <span>
+              <span className={line.join(' ')}>
+                <input
+                  type={'checkbox'}
+                  style={styles.input}
+                  onChange={() => changeCompleted(element.id)}
+                />
                 <strong>{index + 1}</strong>
                 &nbsp;
                 {element.title}
