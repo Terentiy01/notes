@@ -68,30 +68,34 @@ function Todo() {
     <div className="wrapper">
       <h1>Заметки</h1>
       <ul style={styles.ul}>
-        {notes.map((element, index) => {
-          const line = []
+        {notes.length ? (
+          notes.map((element, index) => {
+            const line = []
 
-          if (element.completed) {
-            line.push('chertochka')
-          }
+            if (element.completed) {
+              line.push('chertochka')
+            }
 
-          return (
-            <li style={styles.li} key={element.id}>
-              <span className={line.join(' ')}>
-                <input
-                  checked={element.completed}
-                  type={'checkbox'}
-                  style={styles.input}
-                  onChange={() => changeCompleted(element.id)}
-                />
-                <strong>{index + 1}</strong>
-                &nbsp;
-                {element.title}
-              </span>
-              <button onClick={() => remover(element.id)}>&times;</button>
-            </li>
-          )
-        })}
+            return (
+              <li style={styles.li} key={element.id}>
+                <span className={line.join(' ')}>
+                  <input
+                    checked={element.completed}
+                    type={'checkbox'}
+                    style={styles.input}
+                    onChange={() => changeCompleted(element.id)}
+                  />
+                  <strong>{index + 1}</strong>
+                  &nbsp;
+                  {element.title}
+                </span>
+                <button onClick={() => remover(element.id)}>&times;</button>
+              </li>
+            )
+          })
+        ) : (
+          <p>Нет заметок</p>
+        )}
       </ul>
     </div>
   )
