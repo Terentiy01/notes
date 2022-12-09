@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Loader from './Loader'
 import TodoAdd from './TodoAdd'
 
@@ -24,6 +24,7 @@ const styles = {
 
 function Todo() {
   const [notes, setNotes] = useState([])
+  const [test, setTest] = useState(true)
 
   function addHandler(add) {
     setNotes(
@@ -61,13 +62,16 @@ function Todo() {
   //     })
   //   )
   // }
+  setTimeout(() => {
+    setTest(false)
+  }, 2000)
 
   return (
     <div className="wrapper">
       <h1>Заметки</h1>
       <TodoAdd addHandler={addHandler} />
-      <Loader />
       <ul style={styles.ul}>
+        {test && <Loader />}
         {notes.length ? (
           notes.map((element, index) => {
             const line = []
