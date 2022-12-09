@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Loader from './Loader'
 import TodoAdd from './TodoAdd'
 
 const styles = {
@@ -65,6 +66,7 @@ function Todo() {
     <div className="wrapper">
       <h1>Заметки</h1>
       <TodoAdd addHandler={addHandler} />
+      <Loader />
       <ul style={styles.ul}>
         {notes.length ? (
           notes.map((element, index) => {
