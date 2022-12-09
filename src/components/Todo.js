@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TodoAdd from './TodoAdd'
 
 const styles = {
   ul: {
@@ -67,6 +68,7 @@ function Todo() {
   return (
     <div className="wrapper">
       <h1>Заметки</h1>
+      <TodoAdd />
       <ul style={styles.ul}>
         {notes.length ? (
           notes.map((element, index) => {
@@ -89,7 +91,9 @@ function Todo() {
                   &nbsp;
                   {element.title}
                 </span>
-                <button onClick={() => remover(element.id)}>&times;</button>
+                <button className="rm" onClick={() => remover(element.id)}>
+                  &times;
+                </button>
               </li>
             )
           })
