@@ -6,8 +6,17 @@ const styles = {
   },
 }
 
-function TodoAdd() {
+function TodoAdd({ addHandler }) {
   const [text, setText] = useState('')
+
+  function obnovlenie(event) {
+    event.preventDefault()
+
+    if (text.length) {
+      addHandler(text)
+      setText('')
+    }
+  }
 
   return (
     <>
@@ -16,7 +25,7 @@ function TodoAdd() {
         style={styles.input}
         value={text}
       />
-      <button>Добавить</button>
+      <button onClick={obnovlenie}>Добавить</button>
     </>
   )
 }

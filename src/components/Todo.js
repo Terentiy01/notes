@@ -22,23 +22,19 @@ const styles = {
 }
 
 function Todo() {
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      completed: false,
-      title: 'Привет мир!',
-    },
-    {
-      id: 2,
-      completed: false,
-      title: 'Привет мир!!!!!!!!!!',
-    },
-    {
-      id: 3,
-      completed: false,
-      title: 'Привет мир!!!!!!!!!!!!!!!!!!!',
-    },
-  ])
+  const [notes, setNotes] = useState([])
+
+  function addHandler(add) {
+    setNotes(
+      notes.concat([
+        {
+          id: Date.now(),
+          completed: false,
+          title: add,
+        },
+      ])
+    )
+  }
 
   function changeCompleted(id) {
     setNotes(
@@ -68,7 +64,7 @@ function Todo() {
   return (
     <div className="wrapper">
       <h1>Заметки</h1>
-      <TodoAdd />
+      <TodoAdd addHandler={addHandler} />
       <ul style={styles.ul}>
         {notes.length ? (
           notes.map((element, index) => {
